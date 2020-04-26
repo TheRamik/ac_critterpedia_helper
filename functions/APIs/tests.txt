@@ -4,4 +4,7 @@ POST:
 curl -H "Content-Type: application/json" -X POST -d '{"title": "Hello from Post", "body": "Learning about this API thing"}' http://localhost:5000/critterpedia-helper/us-central1/api/todo
 
 DELETE:
-curl -X DELETE http://localhost:5000/critterpedia-helper/us-central1/api/todo/<todo_id>
+curl -X DELETE http://localhost:5000/critterpedia-helper/us-central1/api/todo/<todoId>
+
+PUT:
+curl -H "Content-Type: application/json" -X PUT -d '{"title": "Hello from Post edit", "body": "Learning about this API thing2"}' http://localhost:5000/critterpedia-helper/us-central1/api/todo/<todoId>
