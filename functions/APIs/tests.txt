@@ -1,0 +1,7 @@
+To test if the todo APIs requests are working.
+
+POST:
+curl -H "Content-Type: application/json" -X POST -d '{"title": "Hello from Post", "body": "Learning about this API thing"}' http://localhost:5000/critterpedia-helper/us-central1/api/todo
+
+DELETE:
+curl -X DELETE http://localhost:5000/critterpedia-helper/us-central1/api/todo/<todo_id>
