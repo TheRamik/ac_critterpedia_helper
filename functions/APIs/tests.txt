@@ -8,3 +8,9 @@ curl -X DELETE http://localhost:5000/critterpedia-helper/us-central1/api/todo/<t
 
 PUT:
 curl -H "Content-Type: application/json" -X PUT -d '{"title": "Hello from Post edit", "body": "Learning about this API thing2"}' http://localhost:5000/critterpedia-helper/us-central1/api/todo/<todoId>
+
+
+{"insectId":1,"name":"Common Butterfly","location":"Flying","value":160,"time":[3,6],"month":{"northern":[0,1,2,3,4,5,8,9,10,11],"southern":[2,3,4,5,6,7,8,9,10,11]},"rare":false}
+{"insectId":2,"name":"Yellow Butterfly","location":"Flying","value":160,"time":[4,19],"month":{"northern":[2,3,4,5,8,9],"southern":[2,3,8,9,10,11]},"rare":false}
+{"insectId":3,"name":"Tiger Butterfly","location":"Flying","value":240,"time":[4,7],"month":{"northern":[2,3,4,5,6,7,8],"southern":[8,9,10,11,0,1,2]},"rare":false}
+{"insectId":4,"name":"Peacock Butterfly","location":"Flying by hybrid floweres","value":2500,"time":[4,19],"month":{"northern":[2,3,4,5],"southern":[8,9,10,11]},"rare":false}

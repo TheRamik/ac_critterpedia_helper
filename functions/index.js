@@ -22,15 +22,15 @@ const {
     getAllInsects,
     getActiveInsects,
     postOneInsect,
-    //deleteInsect,
-    //editInsect,
+    deleteInsect,
+    editInsect,
 } = require('./APIs/insects');
 
 app.get('/insects', getAllInsects);
 app.get('/activeInsects', getActiveInsects);
 app.post('/insect', postOneInsect);
-//app.delete('/insect/:insectId', deleteInsect);
-//app.put('/insect/:insectId', editInsect);
+app.delete('/insect/:docId', deleteInsect);
+app.put('/insect/:docId', editInsect);
 
 // Fishes
 /*

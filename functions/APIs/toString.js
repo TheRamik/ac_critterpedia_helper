@@ -51,10 +51,14 @@ function prettifyDuration(arrLength, index, result) {
 
 function hemisphereStr(monthsMap, hemisphere) {
     let result = '';
-    var monthArr = monthsMap.get(hemisphere.toLowerCase());
+    var monthArr = monthsMap.get(hemisphere.toLowerCase()).sort(function(a, b){return a - b});
     monthArr.forEach((month, index) => {
-        result = prettifyDuration(monthArr.length, index, result);
+        //result = prettifyDuration(monthArr.length, index, result);
         result = result.concat(monthToString(month));
+        if (index != monthArr.length)
+        {
+            result = result.concat(', ');
+        }
     });
     result = result.concat('(' + hemisphere + ')');
     return result;
@@ -75,6 +79,6 @@ exports.monthsToString = (monthsObject) => {
     console.log(typeof monthsObject);
     const monthsMap = new Map(Object.entries(monthsObject));
     result = hemisphereStr(monthsMap, 'Northern');
-    result = result.concat(', ' + hemisphereStr(monthsMap, 'Southern'));
+    result = result.concat('/ ' + hemisphereStr(monthsMap, 'Southern'));
     return result;
 };
