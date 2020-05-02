@@ -3,6 +3,7 @@
 
 const functions = require('firebase-functions');
 const app = require('express')();
+const auth = require('./util/auth');
 
 // Todos
 const {
@@ -38,6 +39,7 @@ const {
     getAllFishes,
     getActiveFishes,
     postOneFish,
+    //uploadFishPhoto,
     deleteFish,
     editFish,
 } = require('./APIs/fishes');
@@ -45,8 +47,23 @@ const {
 app.get('/fishes', getAllFishes);
 app.get('/activeFishes', getActiveFishes);
 app.post('/fish', postOneFish);
+//app.post('/fish/image', uploadFishPhoto);
 app.delete('/fish/:docId', deleteFish);
 app.put('/fish/:docId', editFish);
 
+// Users
+const {
+    loginUser,
+    signUpUser,
+    uploadProfilePhoto,
+    getUserDetails,
+    updateUserDetails,
+} = require('./APIs/users')
+
+app.post('/login', loginUser);
+app.post('/signup', signUpUser);
+app.post('/user/image', auth, uploadProfilePhoto);
+app.get('/user', auth, getUserDetails);
+app.put('/user', auth, updateUserDetails);
 
 exports.api = functions.https.onRequest(app);

@@ -9,8 +9,29 @@ curl -X DELETE http://localhost:5000/critterpedia-helper/us-central1/api/todo/<t
 PUT:
 curl -H "Content-Type: application/json" -X PUT -d '{"title": "Hello from Post edit", "body": "Learning about this API thing2"}' http://localhost:5000/critterpedia-helper/us-central1/api/todo/<todoId>
 
-
+// Insect
 {"insectId":1,"name":"Common Butterfly","location":"Flying","value":160,"time":[3,6],"month":{"northern":[0,1,2,3,4,5,8,9,10,11],"southern":[2,3,4,5,6,7,8,9,10,11]},"rare":false}
 {"insectId":2,"name":"Yellow Butterfly","location":"Flying","value":160,"time":[4,19],"month":{"northern":[2,3,4,5,8,9],"southern":[2,3,8,9,10,11]},"rare":false}
 {"insectId":3,"name":"Tiger Butterfly","location":"Flying","value":240,"time":[4,7],"month":{"northern":[2,3,4,5,6,7,8],"southern":[8,9,10,11,0,1,2]},"rare":false}
 {"insectId":4,"name":"Peacock Butterfly","location":"Flying by hybrid floweres","value":2500,"time":[4,19],"month":{"northern":[2,3,4,5],"southern":[8,9,10,11]},"rare":false}
+
+// Fish
+{"fishId":1,"name":"Bitterling","location":"River","shadow":0, "value":900,"time":[0,0],"month":{"northern":[10,11,0,1,2],"southern":[4,5,6,7,8]},"rare":false}
+
+// User
+SIGNUP:
+curl -H "Content-Type: application/json" -X POST -d '{"email":"testemail123@email.com","password":"Test12345","firstName":"Tee","lastName":"Ester","confirmPassword":"Test12345","username":"tester"}' http://localhost:5000/critterpedia-helper/us-central1/api/signup
+
+LOGIN:
+curl -H "Content-Type: application/json" -X POST -d '{"email":"testemail123@email.com","password":"Test12345"}' http://localhost:5000/critterpedia-helper/us-central1/api/login
+// This will generate a token. This token will last for an hour.
+
+UPLOADIMAGE:
+curl -H "Accept: application/json" -H "Authorization: Bearer <Generated_Token_From_Login>" -X POST -F "image=@/Users/Downloads/Photos/IMG.jpeg" http://localhost:5000/critterpedia-helper/us-central1/api/user/image
+
+GETUSERDETAIL:
+curl -H "Authorization: Bearer <Generated_Token_From_Login>" -X GET http://localhost:5000/critterpedia-helper/us-central1/api/user
+
+
+
+curl -H "Accept: application/json" -H "Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg4ODQ4YjVhZmYyZDUyMDEzMzFhNTQ3ZDE5MDZlNWFhZGY2NTEzYzgiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vY3JpdHRlcnBlZGlhLWhlbHBlciIsImF1ZCI6ImNyaXR0ZXJwZWRpYS1oZWxwZXIiLCJhdXRoX3RpbWUiOjE1ODg0NTI2NDMsInVzZXJfaWQiOiJpQ2FDMFZpTlF0ZmhjQ2xIYWlXTHQzSWJ2SGoyIiwic3ViIjoiaUNhQzBWaU5RdGZoY0NsSGFpV0x0M0lidkhqMiIsImlhdCI6MTU4ODQ1MjY0MywiZXhwIjoxNTg4NDU2MjQzLCJlbWFpbCI6InJpY2t5dGhhbTEyM0B5YWhvby5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsicmlja3l0aGFtMTIzQHlhaG9vLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.B13cNA4hjIAC1vg-BJL8WdJuCu_UCajd_7HcpN8KesToX8IBEXIF6yO8rzbiKj_Udc2T6z-tn4tCY1Ai14OPHNezeQUcKwVCQEkBLgI5CaSCXaSGhvfncf9OOIZNr-UJGpAnXa8BhCTLMLrZ7I29qc4sWD5tQ6MDVVKlfb_r-n7SIJuFknl-iu-TcGrUgyNNRpFi-OU5hIwq0ovQoJK9DOgy8oKX9snYflim_BxYfWSueZFz02p9WQx-2fX7DHMANK8O3pHOA8PFGIf0pC0dLCb6I3sjzrLMMgBGUkbckFwWaAW6al5QI_J7WfGEt10JJk1wmfLAKNj7Ye5LADJFZw" -X POST -F "image=@/Users/thamrick/Downloads/Photos/IMG_3792.jpeg" http://localhost:5000/critterpedia-helper/us-central1/api/user/image
