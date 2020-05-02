@@ -4,6 +4,10 @@ const monthNames = ["January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October", "November", "December"
 ];
 
+const fishSizes = ["Smallest", "Small", "Medium", "Large", "Extra Large", 
+"Largest", "Large (Fin)", "Extra Large (Fin)", "Largest (Fin)", "Narrow",
+]
+
 function hourToString(hour) {
     let result = '';
     if (hour < 0 || hour >= 24) {
@@ -82,3 +86,11 @@ exports.monthsToString = (monthsObject) => {
     result = result.concat('/ ' + hemisphereStr(monthsMap, 'Southern'));
     return result;
 };
+
+exports.shadowToString = (shadowSize) => {
+    if (shadowSize < 0 || shadowSize >= 10)
+    {
+        return 'ERROR';
+    }
+    return fishSizes[shadowSize];
+}

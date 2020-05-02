@@ -33,7 +33,7 @@ app.delete('/insect/:docId', deleteInsect);
 app.put('/insect/:docId', editInsect);
 
 // Fishes
-/*
+
 const {
     getAllFishes,
     getActiveFishes,
@@ -42,11 +42,11 @@ const {
     editFish,
 } = require('./APIs/fishes');
 
-app.get('/fishes',getAllFishes);
+app.get('/fishes', getAllFishes);
 app.get('/activeFishes', getActiveFishes);
 app.post('/fish', postOneFish);
-app.delete('/fish/:fishId', deleteFish);
-app.put('/fish/:fishId', editFish);
-*/
+app.delete('/fish/:docId', deleteFish);
+app.put('/fish/:docId', editFish);
+
 
 exports.api = functions.https.onRequest(app);
