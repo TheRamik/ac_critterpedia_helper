@@ -39,7 +39,7 @@ const {
     getAllFishes,
     getActiveFishes,
     postOneFish,
-    //uploadFishPhoto,
+    uploadFishPhoto,
     deleteFish,
     editFish,
 } = require('./APIs/fishes');
@@ -47,7 +47,7 @@ const {
 app.get('/fishes', getAllFishes);
 app.get('/activeFishes', getActiveFishes);
 app.post('/fish', postOneFish);
-//app.post('/fish/image', uploadFishPhoto);
+app.post('/fish/image/:docId', uploadFishPhoto);
 app.delete('/fish/:docId', deleteFish);
 app.put('/fish/:docId', editFish);
 
