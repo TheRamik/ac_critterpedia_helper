@@ -13,7 +13,7 @@ deleteImage = (imageName) => {
     })
 }
 
-// Upload profile picture
+// Upload picture
 exports.uploadImage = (request, response, dir, desiredFilename, docId) => {
     const BusBoy = require('busboy');
 	const path = require('path');
@@ -63,4 +63,14 @@ exports.uploadImage = (request, response, dir, desiredFilename, docId) => {
             });
     });
 	busboy.end(request.rawBody);
+};
+
+exports.uploadImageWithDBInfo = (request, response, collection) => {
+    let document = db.collection(collection).doc(`${request.params.docId}`);
+    document
+        .get()
+        .then((doc) => {
+            var filename = doc.data().name.replace(/\s+/g, '-').toLowerCase();
+            this.uploadImage(request, response, collection, filename, doc.id);
+        })    
 };

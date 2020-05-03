@@ -4,6 +4,8 @@ const { db } = require('../util/admin');
 const { timeToString,
         monthsToString } = require('./toString');
 
+const { uploadImageWithDBInfo } = require('./images');
+
 exports.getAllInsects = (request, response) => {
     db
         .collection('insects')
@@ -110,3 +112,8 @@ exports.editInsect = (request, response) => {
         return response.status(500).json({error: err.code});
     });
 }
+
+// Upload insect picture
+exports.uploadInsectPhoto = (request, response) => {
+    uploadImageWithDBInfo(request, response, "insects");
+};

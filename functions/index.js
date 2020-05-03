@@ -23,6 +23,7 @@ const {
     getAllInsects,
     getActiveInsects,
     postOneInsect,
+    uploadInsectPhoto,
     deleteInsect,
     editInsect,
 } = require('./APIs/insects');
@@ -30,6 +31,7 @@ const {
 app.get('/insects', getAllInsects);
 app.get('/activeInsects', getActiveInsects);
 app.post('/insect', postOneInsect);
+app.post('/insect/image/:docId', uploadInsectPhoto);
 app.delete('/insect/:docId', deleteInsect);
 app.put('/insect/:docId', editInsect);
 

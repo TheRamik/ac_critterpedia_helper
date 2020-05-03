@@ -5,7 +5,7 @@ const { timeToString,
         monthsToString,
         shadowToString,
 } = require('./toString');
-const { uploadImage } = require('./images');
+const { uploadImageWithDBInfo } = require('./images');
 
 exports.getAllFishes = (request, response) => {
     db
@@ -116,13 +116,7 @@ exports.editFish = (request, response) => {
     });
 }
 
-// Upload profile picture
+// Upload fish picture
 exports.uploadFishPhoto = (request, response) => {
-    let document = db.collection('fishes').doc(`${request.params.docId}`);
-    document
-        .get()
-        .then((doc) => {
-            var name = doc.data().name;
-            uploadImage(request, response, "fishes", name, doc.id);
-        })    
+    uploadImageWithDBInfo(request, response, "fishes");
 };
